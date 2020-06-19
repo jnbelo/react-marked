@@ -1,8 +1,18 @@
 /// <reference types="react" />
 import marked from "marked";
 export interface MarkedProps {
-    options: marked.MarkedOptions;
+    options?: MarkedOptions;
+    overrides?: MarkedOverrides;
     content: string;
 }
-declare const Marked: ({ content, options }: MarkedProps) => JSX.Element;
+export interface MarkedOptions extends marked.MarkedOptions {
+    tokenizer?: any;
+    walkTokens?: Function;
+}
+export interface MarkedOverrides {
+    renderer?: any;
+    tokenizer?: any;
+    walkTokens?: any;
+}
+declare const Marked: ({ options, overrides, content }: MarkedProps) => JSX.Element;
 export default Marked;

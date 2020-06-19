@@ -1,7 +1,6 @@
 src
-dist
-webpack.config.js
-*.md
 .gitignore
 tsconfig.json
 yarn.lock
+.github
+jest.config.js
