@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import marked from "marked";
+import React, { useState, useEffect, FunctionComponent } from 'react';
+import marked from 'marked';
 
 export interface MarkedProps {
     options?: MarkedOptions;
@@ -9,7 +9,7 @@ export interface MarkedProps {
 
 export interface MarkedOptions extends marked.MarkedOptions {
     tokenizer?: any;
-    walkTokens?: Function;
+    walkTokens?: (token: any) => void;
 }
 
 export interface MarkedOverrides {
@@ -18,15 +18,13 @@ export interface MarkedOverrides {
     walkTokens?: any;
 }
 
-const Marked = ({ options, overrides, content }: MarkedProps) => {
+const Marked: FunctionComponent<MarkedProps> = ({ options, overrides, content }: MarkedProps) => {
     const [html, setHtml] = useState<string>();
 
     useEffect(() => {
         const printError = (error: any) => {
             if (error instanceof Error) {
-                setHtml(
-                    `<p>${error.name}: ${error.message}</p><p>${error.stack}</p>`
-                );
+                setHtml(`<p>${error.name}: ${error.message}</p><p>${error.stack}</p>`);
             } else {
                 setHtml(`<p>${error}</p>`);
             }
@@ -38,17 +36,13 @@ const Marked = ({ options, overrides, content }: MarkedProps) => {
                 marked.use(overrides);
             }
 
-            marked(
-                content,
-                options,
-                (error: any | undefined, parsedResult: string) => {
-                    if (error) {
-                        printError(error);
-                    } else {
-                        setHtml(parsedResult);
-                    }
+            marked(content, options, (error: any | undefined, parsedResult: string) => {
+                if (error) {
+                    printError(error);
+                } else {
+                    setHtml(parsedResult);
                 }
-            );
+            });
         } catch (e) {
             printError(e);
         }

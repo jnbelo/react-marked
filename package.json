@@ -1,47 +1,68 @@
 {
-  "name": "@jnbelo/react-marked",
-  "version": "0.1.0",
-  "description": "A React component to render markdown text using Marked",
-  "main": "./lib/index.js",
-  "types": "./lib/index.d.ts",
-  "scripts": {
-    "test": "jest",
-    "coverage": "yarn test --collectCoverage",
-    "build": "tsc"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jnbelo/react-marked.git"
-  },
-  "keywords": [
-    "markdown",
-    "marked",
-    "react"
-  ],
-  "author": "José Belo",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/jnbelo/react-marked/issues"
-  },
-  "homepage": "https://github.com/jnbelo/react-marked#readme",
-  "peerDependencies": {
-    "marked": "^1.1.0",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1"
-  },
-  "devDependencies": {
-    "@testing-library/jest-dom": "^5.10.1",
-    "@testing-library/react": "^10.3.0",
-    "@types/jest": "^26.0.0",
-    "@types/marked": "^0.7.4",
-    "@types/react": "^16.9.38",
-    "@types/react-dom": "^16.9.8",
-    "jest": "^26.0.1",
-    "marked": "^1.1.0",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "source-map-loader": "^1.0.0",
-    "ts-jest": "^26.1.0",
-    "typescript": "^3.9.5"
-  }
+    "name": "@jnbelo/react-marked",
+    "version": "0.1.0",
+    "description": "A React component to render markdown text using Marked",
+    "main": "./lib/index.js",
+    "types": "./lib/index.d.ts",
+    "scripts": {
+        "test": "jest",
+        "coverage": "yarn test --collectCoverage",
+        "lint": "eslint '*/**/*.{ts,tsx}'",
+        "lint:fix": "yarn lint --fix",
+        "build": "tsc"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/jnbelo/react-marked.git"
+    },
+    "keywords": [
+        "markdown",
+        "marked",
+        "react"
+    ],
+    "author": "José Belo",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/jnbelo/react-marked/issues"
+    },
+    "homepage": "https://github.com/jnbelo/react-marked#readme",
+    "peerDependencies": {
+        "marked": "^1.1.0",
+        "react": "^16.13.1",
+        "react-dom": "^16.13.1"
+    },
+    "devDependencies": {
+        "@testing-library/jest-dom": "^5.10.1",
+        "@testing-library/react": "^10.3.0",
+        "@types/jest": "^26.0.0",
+        "@types/marked": "^0.7.4",
+        "@types/react": "^16.9.38",
+        "@types/react-dom": "^16.9.8",
+        "@typescript-eslint/eslint-plugin": "^3.3.0",
+        "@typescript-eslint/parser": "^3.3.0",
+        "eslint": "^7.3.0",
+        "eslint-config-prettier": "^6.11.0",
+        "eslint-plugin-prettier": "^3.1.4",
+        "eslint-plugin-react": "^7.20.0",
+        "husky": "^4.2.5",
+        "jest": "^26.0.1",
+        "lint-staged": "^10.2.11",
+        "marked": "^1.1.0",
+        "prettier": "^2.0.5",
+        "react": "^16.13.1",
+        "react-dom": "^16.13.1",
+        "source-map-loader": "^1.0.0",
+        "ts-jest": "^26.1.0",
+        "typescript": "^3.9.5"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "yarn test && lint-staged"
+        }
+    },
+    "lint-staged": {
+        "*.{ts,tsx}": [
+            "eslint '*/**/*.{ts,tsx}' --fix"
+        ]
+    }
 }
