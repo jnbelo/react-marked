@@ -16,7 +16,7 @@ jobs:
       - name: Install Dependencies
         run: yarn install
       - name: Run Unit Tests
-        run: yarn test
+        run: yarn coverage
   build:
     runs-on: ubuntu-latest
     steps:

@@ -1,46 +1,47 @@
 {
-    "name": "@jnbelo/react-marked",
-    "version": "0.1.0",
-    "description": "A React component to render markdown text using Marked",
-    "main": "./lib/index.js",
-    "types": "./lib/index.d.ts",
-    "scripts": {
-        "test": "jest",
-        "build": "tsc"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/jnbelo/react-marked.git"
-    },
-    "keywords": [
-        "markdown",
-        "marked",
-        "react"
-    ],
-    "author": "José Belo",
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/jnbelo/react-marked/issues"
-    },
-    "homepage": "https://github.com/jnbelo/react-marked#readme",
-    "peerDependencies": {
-        "marked": "^1.1.0",
-        "react": "^16.13.1",
-        "react-dom": "^16.13.1"
-    },
-    "devDependencies": {
-        "@testing-library/jest-dom": "^5.10.1",
-        "@testing-library/react": "^10.3.0",
-        "@types/jest": "^26.0.0",
-        "@types/marked": "^0.7.4",
-        "@types/react": "^16.9.38",
-        "@types/react-dom": "^16.9.8",
-        "jest": "^26.0.1",
-        "marked": "^1.1.0",
-        "react": "^16.13.1",
-        "react-dom": "^16.13.1",
-        "source-map-loader": "^1.0.0",
-        "ts-jest": "^26.1.0",
-        "typescript": "^3.9.5"
-    }
+  "name": "@jnbelo/react-marked",
+  "version": "0.1.0",
+  "description": "A React component to render markdown text using Marked",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "scripts": {
+    "test": "jest",
+    "coverage": "yarn test --collectCoverage",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jnbelo/react-marked.git"
+  },
+  "keywords": [
+    "markdown",
+    "marked",
+    "react"
+  ],
+  "author": "José Belo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jnbelo/react-marked/issues"
+  },
+  "homepage": "https://github.com/jnbelo/react-marked#readme",
+  "peerDependencies": {
+    "marked": "^1.1.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.10.1",
+    "@testing-library/react": "^10.3.0",
+    "@types/jest": "^26.0.0",
+    "@types/marked": "^0.7.4",
+    "@types/react": "^16.9.38",
+    "@types/react-dom": "^16.9.8",
+    "jest": "^26.0.1",
+    "marked": "^1.1.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "source-map-loader": "^1.0.0",
+    "ts-jest": "^26.1.0",
+    "typescript": "^3.9.5"
+  }
 }
