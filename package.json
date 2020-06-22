@@ -1,6 +1,6 @@
 {
     "name": "@jnbelo/react-marked",
-    "version": "1.0.0-rc.1",
+    "version": "1.0.0-rc.2",
     "description": "A React component to render markdown text using Marked",
     "main": "./lib/index.js",
     "types": "./lib/index.d.ts",
@@ -34,7 +34,6 @@
         "@testing-library/jest-dom": "^5.10.1",
         "@testing-library/react": "^10.3.0",
         "@types/jest": "^26.0.0",
-        "@types/marked": "^1.1.0",
         "@types/react": "^16.9.38",
         "@types/react-dom": "^16.9.8",
         "@typescript-eslint/eslint-plugin": "^3.3.0",
@@ -64,6 +63,7 @@
         ]
     },
     "dependencies": {
+        "@types/marked": "^1.1.0",
         "marked": "^1.1.0"
     },
     "files": [
