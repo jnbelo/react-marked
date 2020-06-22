@@ -20,27 +20,27 @@ yarn add @jnbelo/react-marked
 
 ## Usage
 
-```javascript
+```typescript
 import React from 'react';
 import MarkedViewer from 'react-marked';
+import { MarkedOptions } from 'marked';
 
 const App = () => {
-     const content =
-    "# Heading \n Lorem Ipsum [link](https://github.com)";
+    const content = '# Heading \n Lorem Ipsum [link](https://github.com)';
 
     const options: MarkedOptions = {
-        gfm: true,
+        gfm: true
     };
 
     const overrides = {
         renderer: {
-        link(href: string | null, title: string | null, text: string): string {
-            return `<a href=${href} title=${title} target="_blank">${text}</a>`;
-        },
-        },
+            link(href: string | null, title: string | null, text: string): string {
+                return `<a href=${href} title=${title} target="_blank">${text}</a>`;
+            }
+        }
     } as MarkedOptions;
 
-  return (<MarkedViewer content={content} options={options} overrides={overrides} />);
+    return <MarkedViewer content={content} options={options} overrides={overrides} />;
 };
 ```
 
