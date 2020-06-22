@@ -65,5 +65,8 @@
     },
     "dependencies": {
         "marked": "^1.1.0"
-    }
+    },
+    "files": [
+        "lib/**/*"
+    ]
 }
