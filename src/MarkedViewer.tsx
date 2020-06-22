@@ -7,7 +7,7 @@ export interface MarkedProps {
     content: string;
 }
 
-const Marked: FunctionComponent<MarkedProps> = ({ options, overrides, content }: MarkedProps) => {
+const MarkedViewer: FunctionComponent<MarkedProps> = ({ options, overrides, content }: MarkedProps) => {
     const [html, setHtml] = useState<string>();
 
     useEffect(() => {
@@ -39,4 +39,4 @@ const Marked: FunctionComponent<MarkedProps> = ({ options, overrides, content }:
     return <div dangerouslySetInnerHTML={{ __html: html }} />;
 };
 
-export default Marked;
+export default MarkedViewer;

@@ -2,10 +2,10 @@ import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import { MarkedOptions, Slugger } from 'marked';
 import React from 'react';
-import Marked from './Marked';
+import MarkedViewer from './MarkedViewer';
 
 it('should render component with default options', () => {
-    render(<Marked content="# Test" />);
+    render(<MarkedViewer content="# Test" />);
     expect(screen.queryByRole('heading')).toHaveTextContent('Test');
 });
 
@@ -14,7 +14,7 @@ it('should render component with custom options', () => {
         headerPrefix: 'custom-'
     };
 
-    render(<Marked content="# Test" options={options} />);
+    render(<MarkedViewer content="# Test" options={options} />);
     expect(screen.queryByRole('heading')).toHaveAttribute('id', 'custom-test');
 });
 
@@ -27,6 +27,6 @@ it('should render component with custom extensions', () => {
         }
     } as MarkedOptions;
 
-    render(<Marked content="# Test" overrides={overrides} />);
+    render(<MarkedViewer content="# Test" overrides={overrides} />);
     expect(screen.queryByRole('heading')).toHaveTextContent('extended-Test');
 });

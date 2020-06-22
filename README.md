@@ -22,7 +22,7 @@ yarn add @jnbelo/react-marked
 
 ```javascript
 import React from 'react';
-import Marked from 'react-marked';
+import MarkedViewer from 'react-marked';
 
 const App = () => {
     const options = {
@@ -39,7 +39,7 @@ const App = () => {
 
     const content = '# This is a title';
 
-    return <Marked
+    return <MarkedViewer
             content={content}
             options={options}
             overrides={overrides} />;

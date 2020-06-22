@@ -1,5 +1,5 @@
-import Marked, { MarkedProps } from './Marked';
+import MarkedViewer, { MarkedProps } from './MarkedViewer';
 import { MarkedOptions } from 'marked';
 
 export { MarkedProps, MarkedOptions };
-export default Marked;
+export default MarkedViewer;
