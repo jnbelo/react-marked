@@ -1,6 +1,6 @@
 {
     "name": "@jnbelo/react-marked",
-    "version": "1.0.0-rc.2",
+    "version": "1.0.0",
     "description": "A React component to render markdown text using Marked",
     "main": "./lib/index.js",
     "types": "./lib/index.d.ts",

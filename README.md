@@ -25,26 +25,26 @@ import React from 'react';
 import MarkedViewer from 'react-marked';
 
 const App = () => {
-    const options = {
-        gfm: true
+     const content =
+    "# Heading \n Lorem Ipsum [link](https://github.com)";
+
+    const options: MarkedOptions = {
+        gfm: true,
     };
 
     const overrides = {
         renderer: {
-            heading(text:, level, raw:, slugger) {
-                return `<h${level}>extended-${text}</h${level}>`;
-            }
-        }
-    };
+        link(href: string | null, title: string | null, text: string): string {
+            return `<a href=${href} title=${title} target="_blank">${text}</a>`;
+        },
+        },
+    } as MarkedOptions;
 
-    const content = '# This is a title';
-
-    return <MarkedViewer
-            content={content}
-            options={options}
-            overrides={overrides} />;
+  return (<MarkedViewer content={content} options={options} overrides={overrides} />);
 };
 ```
+
+_Note: Currently, due to the way the options typings were created, when adding overrides (See Marked's [extensibility documentation](https://marked.js.org/#/USING_PRO.md), we need to use type assertion as opposed to type annotation)_
 
 ## Further Documentation
 

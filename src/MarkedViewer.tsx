@@ -1,9 +1,9 @@
 import React, { useState, useEffect, FunctionComponent } from 'react';
-import marked from 'marked';
+import marked, { MarkedOptions } from 'marked';
 
 export interface MarkedProps {
-    options?: marked.MarkedOptions;
-    overrides?: marked.MarkedOptions;
+    options?: MarkedOptions;
+    overrides?: MarkedOptions;
     content: string;
 }
 
