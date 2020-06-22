@@ -2,20 +2,9 @@ import React, { useState, useEffect, FunctionComponent } from 'react';
 import marked from 'marked';
 
 export interface MarkedProps {
-    options?: MarkedOptions;
-    overrides?: MarkedOverrides;
+    options?: marked.MarkedOptions;
+    overrides?: marked.MarkedOptions;
     content: string;
-}
-
-export interface MarkedOptions extends marked.MarkedOptions {
-    tokenizer?: any;
-    walkTokens?: (token: any) => void;
-}
-
-export interface MarkedOverrides {
-    renderer?: any;
-    tokenizer?: any;
-    walkTokens?: any;
 }
 
 const Marked: FunctionComponent<MarkedProps> = ({ options, overrides, content }: MarkedProps) => {
@@ -32,11 +21,10 @@ const Marked: FunctionComponent<MarkedProps> = ({ options, overrides, content }:
 
         try {
             if (overrides) {
-                // @ts-ignore
                 marked.use(overrides);
             }
 
-            marked(content, options, (error: any | undefined, parsedResult: string) => {
+            marked(content, options, (error, parsedResult) => {
                 if (error) {
                     printError(error);
                 } else {

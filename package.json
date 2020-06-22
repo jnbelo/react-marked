@@ -1,6 +1,6 @@
 {
     "name": "@jnbelo/react-marked",
-    "version": "0.1.0",
+    "version": "1.0.0",
     "description": "A React component to render markdown text using Marked",
     "main": "./lib/index.js",
     "types": "./lib/index.d.ts",
@@ -27,15 +27,14 @@
     },
     "homepage": "https://github.com/jnbelo/react-marked#readme",
     "peerDependencies": {
-        "marked": "^1.1.0",
-        "react": "^16.13.1",
-        "react-dom": "^16.13.1"
+        "react": "^16.0.0",
+        "react-dom": "^16.0.0"
     },
     "devDependencies": {
         "@testing-library/jest-dom": "^5.10.1",
         "@testing-library/react": "^10.3.0",
         "@types/jest": "^26.0.0",
-        "@types/marked": "^0.7.4",
+        "@types/marked": "^1.1.0",
         "@types/react": "^16.9.38",
         "@types/react-dom": "^16.9.8",
         "@typescript-eslint/eslint-plugin": "^3.3.0",
@@ -47,7 +46,6 @@
         "husky": "^4.2.5",
         "jest": "^26.0.1",
         "lint-staged": "^10.2.11",
-        "marked": "^1.1.0",
         "prettier": "^2.0.5",
         "react": "^16.13.1",
         "react-dom": "^16.13.1",
@@ -64,5 +62,8 @@
         "*.{ts,tsx}": [
             "eslint '*/**/*.{ts,tsx}' --fix"
         ]
+    },
+    "dependencies": {
+        "marked": "^1.1.0"
     }
 }

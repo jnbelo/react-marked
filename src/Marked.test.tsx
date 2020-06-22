@@ -1,6 +1,7 @@
 import '@testing-library/jest-dom';
-import React from 'react';
 import { render, screen } from '@testing-library/react';
+import { MarkedOptions, Slugger } from 'marked';
+import React from 'react';
 import Marked from './Marked';
 
 it('should render component with default options', () => {
@@ -20,12 +21,11 @@ it('should render component with custom options', () => {
 it('should render component with custom extensions', () => {
     const overrides = {
         renderer: {
-            heading(text: string, level: 1 | 2 | 3 | 4 | 5 | 6) {
-                console.log(`<h${level}>extended-${text}</h${level}>`);
+            heading(text: string, level: 1 | 2 | 3 | 4 | 5 | 6, raw: string, slugger: Slugger): string {
                 return `<h${level}>extended-${text}</h${level}>`;
             }
         }
-    };
+    } as MarkedOptions;
 
     render(<Marked content="# Test" overrides={overrides} />);
     expect(screen.queryByRole('heading')).toHaveTextContent('extended-Test');

@@ -1,3 +1,4 @@
-import Marked, { MarkedProps, MarkedOptions, MarkedOverrides } from './Marked';
-export { MarkedProps, MarkedOptions, MarkedOverrides };
+import Marked, { MarkedProps } from './Marked';
+import { MarkedOptions } from 'marked';
+export { MarkedProps, MarkedOptions };
 export default Marked;
