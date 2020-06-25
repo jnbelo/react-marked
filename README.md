@@ -1,6 +1,7 @@
 # React Marked
 
-![build](https://github.com/jnbelo/react-marked/workflows/build/badge.svg)
+![tests](https://github.com/jnbelo/react-marked/workflows/tests/badge.svg)
+[![coverage](https://coveralls.io/repos/github/jnbelo/react-marked/badge.svg?branch=master)](https://coveralls.io/github/jnbelo/react-marked?branch=master)
 
 A simple React component that wraps the [Marked](https://github.com/markedjs/marked) markdown parsing library.
 
