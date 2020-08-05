@@ -13,6 +13,7 @@ const MarkedViewer: FunctionComponent<MarkedProps> = ({ options, overrides, cont
     useEffect(() => {
         const printError = (error: any) => {
             if (error instanceof Error) {
+                console.log(error);
                 setHtml(`<p>${error.name}: ${error.message}</p><p>${error.stack}</p>`);
             } else {
                 setHtml(`<p>${error}</p>`);
@@ -24,7 +25,7 @@ const MarkedViewer: FunctionComponent<MarkedProps> = ({ options, overrides, cont
                 marked.use(overrides);
             }
 
-            marked(content, options, (error, parsedResult) => {
+            marked.parse(content, options, (error, parsedResult) => {
                 if (error) {
                     printError(error);
                 } else {

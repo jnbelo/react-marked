@@ -3,6 +3,11 @@ import { render, screen } from '@testing-library/react';
 import { MarkedOptions, Slugger } from 'marked';
 import React from 'react';
 import MarkedViewer from './MarkedViewer';
+import marked from 'marked';
+
+beforeEach(() => {
+    jest.clearAllMocks();
+});
 
 it('should render component with default options', () => {
     render(<MarkedViewer content="# Test" />);
@@ -29,4 +34,41 @@ it('should render component with custom extensions', () => {
 
     render(<MarkedViewer content="# Test" overrides={overrides} />);
     expect(screen.queryByRole('heading')).toHaveTextContent('extended-Test');
+});
+
+it('should render error in callback', () => {
+    const spy = jest
+        .spyOn(marked, 'parse')
+        .mockImplementation(
+            (
+                content: string,
+                options?: marked.MarkedOptions,
+                callback?: (error: any, parseResult: string) => void
+            ): any => {
+                callback('A callback error occurred', '');
+                return '';
+            }
+        );
+
+    render(<MarkedViewer content="Callback error Test" />);
+    expect(screen.queryByText('A callback error occurred')).not.toBeNull();
+    expect(spy).toHaveBeenCalled();
+});
+
+it('should render a thrown error', () => {
+    const spy = jest
+        .spyOn(marked, 'parse')
+        .mockImplementation(
+            (
+                content: string,
+                options?: marked.MarkedOptions,
+                callback?: (error: any, parseResult: string) => void
+            ): any => {
+                throw new Error('A thrown error occurred');
+            }
+        );
+
+    render(<MarkedViewer content="Thrown error test" />);
+    expect(screen.queryByText('Error: A thrown error occurred')).not.toBeNull();
+    expect(spy).toHaveBeenCalled();
 });
