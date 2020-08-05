@@ -24,7 +24,7 @@ const MarkedViewer: FunctionComponent<MarkedProps> = ({ options, overrides, cont
                 marked.use(overrides);
             }
 
-            marked(content, options, (error, parsedResult) => {
+            marked.parse(content, options, (error, parsedResult) => {
                 if (error) {
                     printError(error);
                 } else {
