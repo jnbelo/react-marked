@@ -4,5 +4,6 @@ module.exports = {
     printWidth: 100,
     singleQuote: true,
     printWidth: 120,
-    tabWidth: 4
+    tabWidth: 4,
+    endOfLine: 'auto'
 };
