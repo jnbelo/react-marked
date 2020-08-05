@@ -11,6 +11,7 @@ const MarkedViewer: FunctionComponent<MarkedProps> = ({ options, overrides, cont
     const [html, setHtml] = useState<string>();
 
     useEffect(() => {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const printError = (error: any) => {
             if (error instanceof Error) {
                 setHtml(`<p>${error.name}: ${error.message}</p><p>${error.stack}</p>`);

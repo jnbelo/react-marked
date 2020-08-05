@@ -37,18 +37,17 @@ it('should render component with custom extensions', () => {
 });
 
 it('should render error in callback', () => {
-    const spy = jest
-        .spyOn(marked, 'parse')
-        .mockImplementation(
-            (
-                content: string,
-                options?: marked.MarkedOptions,
-                callback?: (error: any, parseResult: string) => void
-            ): any => {
-                callback('A callback error occurred', '');
-                return '';
-            }
-        );
+    const spy = jest.spyOn(marked, 'parse').mockImplementation(
+        (
+            content: string,
+            options?: marked.MarkedOptions,
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            callback?: (error: any | undefined, parseResult: string) => void
+        ): string => {
+            callback('A callback error occurred', '');
+            return '';
+        }
+    );
 
     render(<MarkedViewer content="Callback error Test" />);
     expect(screen.queryByText('A callback error occurred')).not.toBeNull();
@@ -56,17 +55,16 @@ it('should render error in callback', () => {
 });
 
 it('should render a thrown error', () => {
-    const spy = jest
-        .spyOn(marked, 'parse')
-        .mockImplementation(
-            (
-                content: string,
-                options?: marked.MarkedOptions,
-                callback?: (error: any, parseResult: string) => void
-            ): any => {
-                throw new Error('A thrown error occurred');
-            }
-        );
+    const spy = jest.spyOn(marked, 'parse').mockImplementation(
+        (
+            content: string,
+            options?: marked.MarkedOptions,
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            callback?: (error: any | undefined, parseResult: string) => void
+        ): string => {
+            throw new Error('A thrown error occurred');
+        }
+    );
 
     render(<MarkedViewer content="Thrown error test" />);
     expect(screen.queryByText('Error: A thrown error occurred')).not.toBeNull();
